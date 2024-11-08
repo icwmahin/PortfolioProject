@@ -1,0 +1,238 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.btn {
+    color: white;
+    text-decoration: none;
+    background-color: #f05454;
+    border-radius: 5px;
+    border: none;
+    padding: .5rem;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    line-height: 1.5;
+}
+
+/* Header */
+header {
+    background: #1a1a1a;
+    padding: 20px;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    color: #f05454;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+/* Hide the nav menu on smaller screens */
+nav {
+    display: flex;
+}
+
+nav ul {
+    flex-direction: row;
+}
+
+.menu-icon {
+    display: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px;
+    background: #0d0d0d;
+}
+
+.hero .content {
+    max-width: 50%;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: #f05454;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.hero img {
+    max-width: 40%;
+}
+
+/* Features Section */
+.features {
+    padding: 50px 20px;
+    background: #181818;
+    text-align: center;
+}
+
+.features h2 {
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+    color: #f05454;
+}
+
+.feature-list {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.feature {
+    text-align: center;
+    padding: 20px;
+    background: #1f1f1f;
+    border-radius: 10px;
+}
+
+.feature i {
+    font-size: 2.5rem;
+    color: #f05454;
+    margin-bottom: 10px;
+}
+
+.feature h3 {
+    margin: 10px 0;
+}
+
+/* About Section */
+.about {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.about p {
+    margin: 20px 0;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat h3 {
+    font-size: 2rem;
+    color: #f05454;
+}
+
+/* Contact Section */
+.contact {
+    padding: 50px 20px;
+    background: #1a1a1a;
+    text-align: center;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact form input,
+.contact form textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #282828;
+    color: #ffffff;
+}
+
+.contact form button {
+    padding: 10px;
+    background: #f05454;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    padding: 20px;
+    background: #121212;
+    text-align: center;
+}
+
+footer .social-icons a {
+    color: #f05454;
+    margin: 0 10px;
+    font-size: 1.5rem;
+}
+
+
+
+
+/* Responsive design: Toggle menu for smaller screens */
+@media (max-width: 768px) {
+    nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: #1a1a1a;
+        width: 100%;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px 0;
+    }
+
+    nav.active {
+        display: block;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
