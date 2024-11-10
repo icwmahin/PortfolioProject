@@ -1,0 +1,149 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  overflow: hidden;
+  background: url("../image/bg-image.svg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+header {
+  margin: 0.5rem;
+  border-radius: 5px;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  background-color: #212529;
+  color: #f8f9fa;
+}
+.right-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+
+  & a {
+    text-decoration: none;
+    cursor: alias;
+    color: #fff;
+  }
+  & a:hover {
+    color: #adb5bd;
+    scale: 1.1;
+    transition: all 0.5s ease;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 90vh;
+}
+
+.search-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 90vh;
+}
+.search-bar {
+  border: none;
+  border-radius: 5px;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  background-color: #212529;
+  color: #f8f9fa;
+  width: auto;
+
+  & input {
+    border: none;
+    border-radius: 5px;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    background-color: #212529;
+    color: #f8f9fa;
+    width: 40vw;
+  }
+
+  & input::placeholder {
+    color: #f8f9fa;
+  }
+
+  & input:focus {
+    outline: none;
+  }
+  & i {
+    cursor: pointer;
+  }
+}
+
+.buttons-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.button {
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: max-content;
+
+  color: #212529;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  text-decoration: none;
+}
+
+.button:hover {
+  color: #212529;
+  scale: 1.1;
+  transition: all 0.5s ease;
+}
+.language-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  & a {
+    text-decoration: none;
+    cursor: alias;
+    color: #212529;
+  }
+  & a:hover {
+    color: #adb5bd;
+    scale: 1.1;
+    transition: all 0.5s ease;
+  }
+}
