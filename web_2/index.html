@@ -8,24 +8,23 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/styles.css">
-    <title>Google Remake</title>
+    <title>NASA Search Engine</title>
 </head>
 
 <body>
     <header>
         <div class="left-header">
-            <i class="fa-brands fa-google"></i>
+            <i class="fa-duotone fa-solid fa-shuttle-space"></i>
         </div>
         <div class="right-header">
-            <a href="https://www.youtube.com/" target="_blank">
+            <a href="https://www.youtube.com/@NASA" target="_blank">
                 <i class="fa-brands fa-youtube"></i>
             </a>
-            </a>
-            <a href="https://mail.google.com/mail/u/0/#inbox" target="_blank">
+            <a href="https://www.nasa.gov/contact/" target="_blank">
                 <i class="fa-solid fa-envelope"></i>
             </a>
             <a href="https://drive.google.com/" target="_blank">
-                <i class="fa-brands fa-google-drive"></i>
+                <i class="fa-solid fa-gamepad"></i>
             </a>
             <a href="https://keep.google.com/" target="_blank">
                 <i class="fa-solid fa-notes-medical"></i>
@@ -33,28 +32,98 @@
         </div>
     </header>
 
-
-    <!-- google search section  -->
-
+    <!-- NASA Search Section with Auto-suggestions and ChatGPT Icon -->
     <main>
         <section class="search-section">
             <div class="search-bar">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="let's goooogle it">
-                <i class="fa-solid fa-microphone"></i>
+                <i class="fa-solid fa-magnifying-glass" onclick="searchNasa()"></i>
+                <input type="text" id="search-input" placeholder="Search NASA content" oninput="getSuggestions()">
+                <i class="fa-solid fa-robot" onclick="redirectToChatGPT()"></i>
             </div>
+            <div id="suggestions" class="suggestions-dropdown hidden"></div>
         </section>
 
-
         <section class="buttons-section">
-            <button class="button">Google Search</button>
-            <button class="button">I'm Feeling Lucky</button>
+            <button class="button" onclick="searchNasa()">NASA Search</button>
+            <button class="button" onclick="feelingLucky()">I'm Feeling Lucky</button>
         </section>
 
         <section class="language-section">
             <p>Google offered in: <a href="#">English</a></p>
         </section>
     </main>
+
+    <script>
+        const nasaApiKey = 'YOUR_NASA_API_KEY';
+
+        // Redirect to ChatGPT
+        function redirectToChatGPT() {
+            window.location.href = "https://chatgpt.com/g/g-DWwmfurjk-nasapedia?utm_source=gpts123.ai/";
+        }
+
+        // Fetch suggestions as the user types
+        async function getSuggestions() {
+            const query = document.getElementById("search-input").value;
+            if (query.length < 3) {
+                document.getElementById("suggestions").classList.add("hidden");
+                return;
+            }
+            try {
+                const response = await fetch(`https://images-api.nasa.gov/search?q=${query}`);
+                const data = await response.json();
+                const suggestions = data.collection.items.slice(0, 5).map(item => item.data[0].title);
+                displaySuggestions(suggestions);
+            } catch (error) {
+                console.error('Error fetching suggestions:', error);
+            }
+        }
+
+        // Display suggestions dropdown
+        function displaySuggestions(suggestions) {
+            const suggestionsBox = document.getElementById("suggestions");
+            suggestionsBox.innerHTML = "";
+            suggestions.forEach(suggestion => {
+                const suggestionItem = document.createElement("div");
+                suggestionItem.classList.add("suggestion-item");
+                suggestionItem.textContent = suggestion;
+                suggestionItem.onclick = () => {
+                    document.getElementById("search-input").value = suggestion;
+                    searchNasa();
+                };
+                suggestionsBox.appendChild(suggestionItem);
+            });
+            suggestionsBox.classList.remove("hidden");
+        }
+
+        // Search NASA API with query and redirect to results
+        async function searchNasa() {
+            const query = document.getElementById("search-input").value;
+            if (!query) return;
+            try {
+                const response = await fetch(`https://images-api.nasa.gov/search?q=${query}&media_type=image`);
+                const data = await response.json();
+                displayResults(data.collection.items);
+            } catch (error) {
+                console.error('Error fetching NASA data:', error);
+            }
+        }
+
+        // Display search results on a new page
+        function displayResults(results) {
+            const resultsPage = window.open("", "_blank");
+            resultsPage.document.write(`<h1>Search Results for NASA</h1>`);
+            results.forEach(item => {
+                resultsPage.document.write(`<p><a href="${item.links[0].href}" target="_blank">${item.data[0].title}</a></p>`);
+            });
+        }
+
+        // Handle Enter key in search input
+        document.getElementById("search-input").addEventListener("keyup", (event) => {
+            if (event.key === "Enter") {
+                searchNasa();
+            }
+        });
+    </script>
 </body>
 
 </html>

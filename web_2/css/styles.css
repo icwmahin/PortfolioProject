@@ -147,3 +147,41 @@ main {
     transition: all 0.5s ease;
   }
 }
+
+/* Container for suggestions */
+.suggestions-dropdown {
+  margin: 0.5rem;
+  color: #f8f9fa;
+  background-color: #212529;
+  padding: 0.5rem;
+  border-radius: 5px;
+  line-height: 1.1rem;
+  line-gap-override: 0.5rem;
+}
+
+.suggestions-dropdown.hidden {
+  display: none;
+}
+
+/* Style for each suggestion item */
+.suggestion-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  color: #f8f9fa;
+  font-family: "Roboto", sans-serif;
+  transition: background-color 0.2s ease;
+  border-radius: 5px;
+}
+
+.suggestion-item:hover {
+  background-color: #f1f1f1;
+  color: #000;
+  transition: background-color 0.2s ease;
+  border-radius: 5px;
+}
+
+/* Highlighted effect for keyboard navigation (optional) */
+.suggestion-item.active {
+  background-color: #e0e0e0;
+  color: #333;
+}
