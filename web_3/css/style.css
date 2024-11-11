@@ -1,7 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Varela+Round&display=swap");
+/* 
+.varela-round-regular {
+  font-family: "Varela Round", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+} */
 * {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Varela Round", sans-serif;
 }
 
 body::-webkit-scrollbar {
@@ -42,39 +49,51 @@ a {
   box-sizing: border-box;
   z-index: 1;
   border: 1px solid rgba(167, 158, 245, 0.1);
+  background: linear-gradient(120deg, #6b60ec 20%, #a166f4);
+}
+
+.fa-search {
+  color: #fff;
 }
 .searchbox input {
+  background: transparent;
   width: 90px;
   height: 20px;
   border: none;
   outline: none;
-  background-color: transparent;
-  color: #1f1f1f;
+  color: #ffffff;
   font-size: 1rem;
   padding: 0px 10px;
 }
 .searchbox input::placeholder {
-  color: #1d1d1d;
+  color: #ffffff;
   font-weight: 400;
   letter-spacing: 2px;
   font-size: 0.8rem;
   font-family: poppins;
 }
-
-.section1 {
-  position: absolute;
-  left: 15%;
-  top: 50%;
-  transform: translate(-15%, -50%);
+.heroContent {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  height: 100vh;
 }
+.section1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .section1 img {
-  height: 300px;
+  height: 30rem;
 }
 .section1Button {
-  position: absolute;
-  top: 50%;
-  left: 90%;
-  transform: translate(-90%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .section1Button h1,
@@ -83,7 +102,7 @@ h2 {
   font-weight: bold;
   margin: 0px;
   line-height: 60px;
-  font-size: 4rem;
+  font-size: 5rem;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.08);
   letter-spacing: 3px;
   color: #3d3d4a;
@@ -143,35 +162,40 @@ span {
 }
 
 .iconArea a i {
+  background: #f0f0f0;
   color: rgba(39, 39, 39, 0.8);
+  transition: all ease 0.5s;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .iconArea a:hover .fa-facebook-f {
-  color: #3b5998;
+  color: #6b61fd;
+  border-radius: 50%;
 }
-.iconArea a:hover .fa-twitter {
-  color: #00acee;
+.iconArea a:hover .fa-x-twitter {
+  color: #6b61fd;
 }
 .iconArea a:hover .fa-instagram {
-  color: #3f729b;
+  color: #6b61fd;
 }
-.iconArea a:hover .fa-youtube {
-  color: #ff0000;
+.iconArea a:hover .fa-threads {
+  color: #6b61fd;
 }
 
 .productSection {
-  width: 85%;
-  background-color: #ffffff;
-  box-shadow: 2px 2px 30px rgba(167, 158, 245, 0.2);
   display: flex;
-  margin: 30px auto;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   padding: 40px 20px;
-  margin-top: -60px;
-  position: relative;
-  background-size: 1000px;
   border-radius: 10px;
+  box-shadow: 2px 2px 30px rgba(167, 158, 245, 0.2);
+  margin: 1rem;
 }
 .productSection > h3 {
   margin: 20px;
@@ -261,16 +285,14 @@ span {
 }
 .about {
   display: flex;
-  width: 85%;
-  margin: 50px auto;
-  justify-content: space-around;
-  align-items: center;
-  padding: 30px;
-  margin-bottom: 150px !important;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: column-reverse;
+  margin: 0.5rem 0;
 }
 
 .aboutBox {
-  width: 40%;
+  width: 80%;
   font-family: myriad pro;
 }
 
@@ -347,7 +369,8 @@ span {
   text-transform: uppercase;
   font-weight: bold;
   box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
-  font-size: 1rem;
+  font-size: 0.8em;
+  transition: all ease 0.5s;
 }
 .NotificationButton:hover {
   background-color: #6b60ec;
@@ -361,4 +384,33 @@ footer {
 footer p {
   text-align: center;
   color: #f2f2f2;
+}
+
+@media only screen and (max-width: 600px) {
+  .SearchArea {
+    display: none;
+  }
+  .logo {
+    display: flex;
+    width: 60%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .section1 img {
+    width: 300px;
+  }
+  .section1Button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .section1Button h1 {
+    font-size: 3rem;
+    width: 90%;
+  }
+  .section1Button h2 {
+    font-size: 2rem;
+  }
 }
