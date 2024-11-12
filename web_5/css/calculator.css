@@ -58,18 +58,18 @@ button:hover {
 }
 
 .btn-clear {
-  color: #6afa80;
+  color: #fa6a6a;
 }
 
 .btn-delete {
-  color: #6afa80;
+  color: #fa6a6a;
 }
 
 .btn-operator {
-  color: #ff9d00;
+  color: #00ff62;
 }
 
 .btn-equal {
-  background-color: #ff9d00;
-  color: #fff;
+  background-color: #6f00ff;
+  color: #ffffff;
 }
