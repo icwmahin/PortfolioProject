@@ -56,3 +56,4 @@ function calculate() {
 function updateDisplay(value) {
   display.textContent = value;
 }
+// **
